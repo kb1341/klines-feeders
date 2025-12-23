@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kline's Feeders — Frozen Rodents & Chicks</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="description" content="Premium frozen feeders shipped cold-packed. Mice, rats, rabbits, and chicks." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">KF</span>
+        <span class="brand-text">
+          <strong>Kline's Feeders</strong>
+          <small>Frozen • Cold-packed • Shipped</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="#how">How it works</a>
+        <a href="#shipping">Shipping</a>
+        <a class="btn btn-primary" href="order.html">Build Your Box</a>
+        <button class="btn btn-ghost" type="button" id="themeToggle" aria-label="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span class="hide-sm">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Frozen feeders, packed right and shipped fast.</h1>
+          <p class="lead">
+            Mice, rats, rabbits, and chicks — sized consistently, packed cleanly,
+            and shipped cold-packed so your animals get the best.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="order.html">Build Your Box</a>
+            <a class="btn btn-ghost" href="#how">How ordering works</a>
+          </div>
+
+          <div class="hero-badges">
+            <span class="badge">Cold-packed shipments</span>
+            <span class="badge">Bulk pack options</span>
+            <span class="badge">Order confirmation email</span>
+          </div>
+        </div>
+
+        <div class="card hero-card">
+          <h3>Next ship window</h3>
+          <p class="muted">
+            Orders are confirmed via email. Ship timing may adjust for extreme temps.
+          </p>
+          <ul class="list">
+            <li><strong>Cutoff:</strong> Tue 12:00pm (local)</li>
+            <li><strong>Typical ship:</strong> Wed–Thu</li>
+            <li><strong>Hold for pickup:</strong> Available by request</li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="order.html">Start an order</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p class="muted">No account required. Fast ordering. Clear tracking.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>1) Build your box</h3>
+            <p>Add items by type, size, and pack quantity. Add notes for substitutions.</p>
+          </div>
+          <div class="card">
+            <h3>2) We confirm</h3>
+            <p>You’ll get an email confirmation with an order reference number.</p>
+          </div>
+          <div class="card">
+            <h3>3) Ship cold-packed</h3>
+            <p>We ship with insulation + cold packs. Tracking sent when shipped.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shipping" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Shipping & handling</h2>
+          <p class="muted">Frozen shipments require timely receipt.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Cold chain policy</h3>
+            <p>
+              Please ensure someone can receive the package promptly. Weather may impact ship schedules.
+            </p>
+            <ul class="list">
+              <li>Extreme temps may delay shipment</li>
+              <li>We recommend a safe delivery location</li>
+              <li>Request “Hold at facility” if needed</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Professional order tracking</h3>
+            <p>
+              Orders are logged automatically and assigned a reference number.
+              You can reply to your confirmation email with changes.
+            </p>
+            <a class="btn btn-primary" href="order.html">Build Your Box</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Kline's Feeders</strong>
+        <div class="muted">Frozen feeders shipped cold-packed.</div>
+      </div>
+      <div class="muted small">
+        © <span id="year"></span> Kline's Feeders • <a href="order.html">Order</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/theme.js"></script>
+
+</body>
+</html>

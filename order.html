@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Build Your Box — Kline's Feeders</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="description" content="Build your frozen feeder shipment. Submit an order request and receive confirmation by email." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">KF</span>
+        <span class="brand-text">
+          <strong>Kline's Feeders</strong>
+          <small>Build Your Box</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a class="btn btn-ghost" href="#policies">Policies</a>
+        <button class="btn btn-ghost" type="button" id="themeToggle" aria-label="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span class="hide-sm">Theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="page-head">
+        <h1>Build Your Box</h1>
+        <p class="muted">
+          Add items below, then submit your order request. You’ll receive an email confirmation with a reference number.
+        </p>
+      </div>
+
+      <div class="notice">
+        <strong>Frozen shipment note:</strong>
+        Please ensure someone can receive the package promptly. Extreme temps may delay shipments.
+      </div>
+
+      <div class="grid-2">
+        <section class="card">
+          <h2 class="card-title">Items</h2>
+          <p class="muted small">Add line items. Use packs to reduce errors.</p>
+
+          <div id="items" class="items"></div>
+
+          <div class="row gap">
+            <button id="addItem" class="btn btn-ghost" type="button">+ Add item</button>
+            <button id="clearItems" class="btn btn-ghost" type="button">Clear</button>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row space-between">
+            <div>
+              <div class="muted small">Order summary</div>
+              <div id="summary" class="mono small"></div>
+            </div>
+            <div class="pill" title="This is optional / approximate">
+              Est. total: <span id="estTotal">$0.00</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="card-title">Customer & Shipping</h2>
+
+          <form id="orderForm">
+            <!-- Anti-bot honeypot (hidden) -->
+            <div class="hp">
+              <label>Leave this blank</label>
+              <input type="text" name="company" autocomplete="off" tabindex="-1" />
+            </div>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="customerName">Name</label>
+                <input id="customerName" name="customerName" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" inputmode="tel" placeholder="(555) 555-5555" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@email.com" />
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="field">
+              <label for="shipToName">Ship-to name</label>
+              <input id="shipToName" name="shipToName" required />
+            </div>
+
+            <div class="field">
+              <label for="address1">Address</label>
+              <input id="address1" name="address1" required />
+            </div>
+
+            <div class="field">
+              <label for="address2">Apt / Unit (optional)</label>
+              <input id="address2" name="address2" />
+            </div>
+
+            <div class="grid-3">
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" required />
+              </div>
+              <div class="field">
+                <label for="state">State</label>
+                <input id="state" name="state" required maxlength="2" placeholder="" />
+              </div>
+              <div class="field">
+                <label for="zip">ZIP</label>
+                <input id="zip" name="zip" required inputmode="numeric" />
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- <div class="grid-2">
+              <div class="field">
+                <label for="shipPref">Ship preference</label>
+                <select id="shipPref" name="shipPref" required>
+                  <option value="next_available">Next available</option>
+                  <option value="hold_for_pickup">Hold for pickup (carrier)</option>
+                  <option value="deliver_weekday">Weekday delivery</option>
+                  <option value="deliver_weekend">Weekend delivery (if available)</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="subsAllowed">Substitutions allowed?</label>
+                <select id="subsAllowed" name="subsAllowed" required>
+                  <option value="yes">Yes — size up/down OK</option>
+                  <option value="no">No — confirm first</option>
+                </select>
+              </div>
+            </div> -->
+
+            <div class="field">
+              <label for="notes">Notes (delivery / gate code / feeder preferences)</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Example: If out of stock, substitute hopper for fuzzies."></textarea>
+            </div>
+
+            <div id="policies" class="field checkbox">
+              <input id="policyAgree" type="checkbox" required />
+              <label for="policyAgree">
+                I understand frozen shipments may be delayed due to weather and must be received promptly.
+              </label>
+            </div>
+
+            <button id="submitBtn" class="btn btn-primary btn-block" type="submit">
+              Submit Order Request
+            </button>
+
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="muted small">
+        Questions? Reply to your confirmation email after submitting.
+      </div>
+      <div class="muted small">© <span id="year"></span> Kline's Feeders</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/theme.js"></script>
+  <script src="assets/order.js"></script>
+</body>
+</html>
